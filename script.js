@@ -22,7 +22,7 @@ function getComputerChoice() {
     computerChoice = "scissors"
   }
 
-  console.log(computerChoice);
+  console.log(`Computer choose: ${computerChoice}`);
   return computerChoice;
   //FUCK HERE I JUST NEED A RETURN, THEN NOW THE CODE WORKS... FUNCTION NEED RETURN. STUCK ON CODE NOT WORKING/RETURNING UNDEFINED FOR A LONG TIME.
 }
@@ -30,26 +30,29 @@ function getComputerChoice() {
 //OMFG I FUCKING MAKE THIS HAPPEN LIAO!!! OH MY GOD!!! OFC GOT A BIT OF ACCIDENTALLY LOOK AT HOW OTHERS DO IT LAST WEEK, BUT AT LEAST THIS IS I MAKE MYSELF DE! I UNDERSTAND THE CODE WHAT'S IT DOING! 
 
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection === computerSelection) {
+
+  let playerSelectionLowerCase = playerSelection.toLowerCase();
+
+  if (playerSelectionLowerCase === computerSelection) {
     return "It's a tie!";
-  } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
+  } else if ((playerSelectionLowerCase === "rock") && (computerSelection === "scissors")) {
     return "You win, rock crush scissors";
-  } else if ((playerSelection === "rock") && (computerSelection === "paper")) {
+  } else if ((playerSelectionLowerCase === "rock") && (computerSelection === "paper")) {
     return "You lose, paper swallow rock";
-  } else if ((playerSelection === "scissors") && (computerSelection === "rock")) {
+  } else if ((playerSelectionLowerCase === "scissors") && (computerSelection === "rock")) {
     return "You lose, rock crush scissors";
-  } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
+  } else if ((playerSelectionLowerCase === "scissors") && (computerSelection === "paper")) {
     return "You win, scissors cut paper";
-  } else if ((playerSelection === "paper") && (computerSelection === "scissors")) {
+  } else if ((playerSelectionLowerCase === "paper") && (computerSelection === "scissors")) {
     return "You lose, scissors cut paper";
-  } else if ((playerSelection === "paper") && (computerSelection === "rock")) {
+  } else if ((playerSelectionLowerCase === "paper") && (computerSelection === "rock")) {
     return "You win, paper swallow rock";
   } else {
-    return "Nothing";
+    return "Try again, input wrong!";
   }
 }
 
-const playerSelection = "rock";
+const playerSelection = prompt();
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
 //playRound(playerSelection, computerSelection);
